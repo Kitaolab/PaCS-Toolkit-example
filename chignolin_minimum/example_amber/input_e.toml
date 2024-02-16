@@ -1,0 +1,26 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 2
+n_parallel = 2
+skip_frame = 1
+centering = false
+working_dir = "./"
+
+## simulator
+simulator = "amber"
+cmd_mpi = ""
+cmd_serial = "sander"
+cmd_parallel = "sander"
+structure = "./inputs/example_amber/structure.rst7"
+topology = "./inputs/example_amber/topology.parm7"
+mdconf = "./inputs/example_amber/parameter.mdin"
+trajectory_extension = ".nc"
+
+## analyzer
+type = "ee"
+analyzer = "mdtraj"
+selection1 = "protein and name CA"
+selection2 = "protein and name CA"
+selection3 = "protein and name CA"
+selection4 = "protein and name CA"

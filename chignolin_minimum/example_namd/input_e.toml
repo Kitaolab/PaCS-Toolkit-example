@@ -1,0 +1,26 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 2
+n_parallel = 2
+skip_frame = 1
+centering = false
+working_dir = "./"
+
+## simulator
+simulator = "namd"
+cmd_mpi = ""
+cmd_serial = "namd2 +p6"
+cmd_parallel = "namd2 +p6"
+structure = "./inputs/example_namd/input.pdb"
+topology = "./inputs/example_namd/ionized.psf"
+mdconf = "./inputs/example_namd/production.namd"
+trajectory_extension = ".dcd"
+
+## analyzer
+type = "ee"
+analyzer = "mdtraj"
+selection1 = "protein and name CA"
+selection2 = "protein and name CA"
+selection3 = "protein and name CA"
+selection4 = "protein and name CA"

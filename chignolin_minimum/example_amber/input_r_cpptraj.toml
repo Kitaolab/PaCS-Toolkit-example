@@ -1,0 +1,27 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 2
+n_parallel = 1
+centering = false
+working_dir = "./."
+
+## simulator
+simulator = "amber"
+cmd_mpi = ""
+# cmd_serial = "pmemd.cuda"
+cmd_serial = "sander"
+structure = "./inputs/example_amber/structure.rst7"
+topology = "./inputs/example_amber/topology.parm7"
+mdconf = "./inputs/example_amber/parameter.mdin"
+trajectory_extension = ".nc"
+
+## analyzer
+type = "rmsd"
+threshold = 100
+reference = "./inputs/example_amber/structure.rst7"
+analyzer = "cpptraj"
+selection1 = ":1-5@CA"
+selection2 = "@CA"
+selection3 = ":1-5@CA"
+selection4 = "@CA"

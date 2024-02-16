@@ -1,0 +1,26 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 2
+n_parallel = 2
+centering = false
+working_dir = "./."
+rmmol = false
+
+## simulator
+simulator = "gromacs"
+cmd_mpi = ""
+cmd_serial = "gmx_mpi mdrun -ntomp 8"
+structure = "./inputs/example_gromacs/input.gro"
+topology = "./inputs/example_gromacs/topol.top"
+mdconf = "./inputs/example_gromacs/parameter.mdp"
+index_file = "./inputs/example_gromacs/index.ndx"
+trajectory_extension = ".xtc"
+
+## analyzer
+type = "target"
+threshold = 0.01
+reference = "./inputs/example_gromacs/1UAO_mod.pdb"
+analyzer = "mdtraj"
+selection1 = "backbone"
+selection2 = "backbone"

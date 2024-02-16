@@ -1,0 +1,27 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 2
+n_parallel = 2
+skip_frame = 1
+centering = false
+working_dir = "./"
+
+## simulator
+simulator = "gromacs"
+cmd_mpi = ""
+cmd_serial = "gmx_mpi mdrun -ntomp 8"
+cmd_parallel = "gmx_mpi mdrun -ntomp 8"
+structure = "./inputs/example_gromacs/input.gro"
+topology = "./inputs/example_gromacs/topol.top"
+mdconf = "./inputs/example_gromacs/parameter.mdp"
+index_file = "./inputs/example_gromacs/index.ndx"
+trajectory_extension = ".xtc"
+
+## analyzer
+type = "ee"
+analyzer = "mdtraj"
+selection1 = "protein and name CA"
+selection2 = "protein and name CA"
+selection3 = "protein and name CA"
+selection4 = "protein and name CA"

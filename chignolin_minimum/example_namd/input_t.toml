@@ -1,0 +1,25 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 3
+n_parallel = 3
+centering = false
+working_dir = "./."
+
+## simulator
+simulator = "namd"
+cmd_mpi = ""
+cmd_serial = "namd2 +p6"
+cmd_parallel = "namd2 +p6"
+structure = "./inputs/example_namd/input.pdb"
+topology = "./inputs/example_namd/ionized.psf"
+mdconf = "./inputs/example_namd/production.namd"
+trajectory_extension = ".dcd"
+
+## analyzer
+type = "target"
+threshold = 0.01
+reference = "./inputs/example_namd/ref.pdb"
+selection1 = "backbone"
+selection2 = "backbone"
+analyzer = "mdtraj"

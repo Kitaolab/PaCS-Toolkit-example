@@ -1,0 +1,31 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 3
+n_parallel = 3
+centering = true
+centering_selection = "protein"
+working_dir = "./."
+
+## simulator
+simulator = "amber"
+cmd_mpi = "mpirun -np 6"
+# cmd_serial = "pmemd.cuda"
+cmd_serial = "sander.MPI"
+structure = "./inputs/example_amber/structure.rst7"
+topology = "./inputs/example_amber/topology.parm7"
+mdconf = "./inputs/example_amber/parameter.mdin"
+trajectory_extension = ".nc"
+
+
+## analyzer
+type = "dissociation"
+threshold = 100
+analyzer = "mdtraj"
+selection1 = "resid 1 to 5"
+selection2 = "resid 6 to 10"
+
+## postprocess
+rmfile = true
+rmmol = true
+keep_selection = "not water"

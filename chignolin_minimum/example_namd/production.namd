@@ -1,0 +1,102 @@
+#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+# sampling
+
+
+#############################################################
+## ADJUSTABLE PARAMETERS                                   ##
+#############################################################
+
+
+set INPUTPATH      ./inputs/example_namd
+
+structure          ../../../inputs/example_namd/ionized.psf
+coordinates        input.pdb
+extendedSystem     ../../../inputs/example_namd/cycle0.restart.xsc
+
+set temperature    300
+set outputname     prd
+
+firsttimestep      0
+
+
+#############################################################
+## SIMULATION PARAMETERS                                   ##
+#############################################################
+
+
+
+paraTypeCharmm	    on
+parameters          ../../../inputs/example_namd/toppar/par_all36_carb.prm
+parameters          ../../../inputs/example_namd/toppar/par_all36_cgenff.prm
+parameters          ../../../inputs/example_namd/toppar/par_all36_lipid.prm
+parameters          ../../../inputs/example_namd/toppar/par_all36_na.prm
+parameters          ../../../inputs/example_namd/toppar/par_all36m_prot.prm
+parameters          ../../../inputs/example_namd/toppar/toppar_water_ions_namd.str
+temperature         $temperature
+
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              13.0
+switching           on
+switchdist          10.0
+pairlistdist        14.0
+
+# Integrator Parameters
+stepspercycle       20
+timestep            2.0  ;# 2fs/step
+rigidBonds          all  ;# needed for 2fs steps
+nonbondedFreq       1
+fullElectFrequency  2
+pairlistsperCycle   2
+
+# Constant Temperature Control
+langevin            on    ;# do langevin dynamics
+langevinDamping     5.0     ;# damping coefficient (gamma) of 1/ps
+langevinTemp        $temperature
+langevinHydrogen    off    ;# don't couple langevin bath to hydrogens
+
+# PME (for full-system periodic electrostatics)
+PME                 yes
+PMEGridSizeX        64
+PMEGridSizeY        40
+PMEGridSizeZ        36
+
+wrapWater           on
+
+
+# Constant Pressure Control (variable volume)
+useGroupPressure      yes ;# needed for rigidBonds
+useFlexibleCell       no
+useConstantArea       no
+
+langevinPiston        on
+langevinPistonTarget  1.01325 ;#  in bar -> 1 atm
+langevinPistonPeriod  100.0
+langevinPistonDecay   50.0
+langevinPistonTemp    $temperature
+
+
+# Output
+outputName          $outputname
+
+restartfreq         5000     ;# 500steps = every 1ps
+dcdfreq             500
+XSTfreq             5000
+outputEnergies      100
+outputPressure      100
+
+
+#############################################################
+## EXTRA PARAMETERS                                        ##
+#############################################################
+
+#############################################################
+## EXECUTION SCRIPT                                        ##
+#############################################################
+
+run    5000

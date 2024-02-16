@@ -1,0 +1,24 @@
+# pacsmd settings
+## basic
+max_cycle = 2
+n_replica = 3
+n_parallel = 3
+centering = false
+working_dir = "./."
+
+## simulator
+simulator = "gromacs"
+cmd_mpi = ""
+cmd_serial = "gmx_mpi mdrun -ntomp 6"
+structure = "./inputs/example_gromacs/input.gro"
+topology = "./inputs/example_gromacs/topol.top"
+mdconf = "./inputs/example_gromacs/parameter.mdp"
+index_file = "./inputs/example_gromacs/index.ndx"
+trajectory_extension = ".xtc"
+
+## analyzer
+type = "dissociation"
+threshold = 100
+analyzer = "mdtraj"
+selection1 = "resid 1 to 5"
+selection2 = "resid 6 to 10"
