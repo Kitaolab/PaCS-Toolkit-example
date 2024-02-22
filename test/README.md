@@ -1,5 +1,5 @@
 ## PaCS-MD example data
-#### chignolin
+#### test
 
 
 ### Prepare pacsmd command
