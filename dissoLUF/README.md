@@ -12,5 +12,8 @@ The Adenosine A2A receptor (A2AR) is a class A G protein-coupled receptor (GPCR)
 - OPC model is used for water molecules.
 - Li/Merz ion parameters are used for KCl.
 - GAFF2 with B3LYP/6-31G* -level of theory partial charge parameterization for ligand LUF5833.
-  
+## Run command:
+```
+pacs mdrun -t 1 -f input.toml
+```
 ![A2ARLUF5833](https://github.com/Kitaolab/PaCS-MD-example/assets/6975132/d8b24450-eca6-4496-aedb-bba13a12944f)
