@@ -1,0 +1,29 @@
+max_cycle = 1000
+n_replica = 50
+n_parallel = 50
+centering = true
+centering_selection = "centering"
+working_dir = "./."
+
+software = "gromacs"
+cmd_mpi = "mpirun -np 50 "
+cmd_serial = "gmx_mpi mdrun -ntomp 48"
+cmd_parallel = "gmx_mpi mdrun -ntomp 48"
+structure = "../LUF5833/input.gro"
+topology = "../LUF5833/topol.top"
+parameter = "../LUF5833/mdpacs.mdp"
+index_file = "../LUF5833/index.ndx"
+trajectory_extension = ".xtc"
+
+function = "dissociation"
+threshold = 100
+skip_frame = 5
+analyze_tool = "gromacs"
+selection1 = "Protein"
+selection2 = "MOL"
+
+bestframe = true
+rmmol = true
+keep_selection = "Protein_MOL_Na+_K+_Cl-"
+rmfile = true
+cmd_gmx = "gmx"
