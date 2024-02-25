@@ -5,7 +5,7 @@ The Adenosine A2A receptor (A2AR) is a class A G protein-coupled receptor (GPCR)
 ## System information:
 - The complex A2AR/LUF5833 is generated using the PDB id 7ARO, all the missing atoms are reconstructed.
 - The complex is embeded to the lipid bilayer membrane consisted of POPC$`_4`$:CHL$`_1`$ yielding 145 POPC molecules and 37 Cholesterol molecules.
-- The model is solvated with 0.15M KCl to make the box at the size $`7.69146 \times 7.69146 \times 16.60672 nm`$
+- The model is solvated with 0.15M KCl to make the box at the size $`7.69146 \times 7.69146 \times 16.60672 `$ nm.
 ## Forcefield:
 - AMBER19SB is used for protein
 - LIPID21 is used for membrane molecules
@@ -13,3 +13,4 @@ The Adenosine A2A receptor (A2AR) is a class A G protein-coupled receptor (GPCR)
 - Li/Merz ion parameters are used for KCl.
 - GAFF2 with B3LYP/6-31G* -level of theory partial charge parameterization for ligand LUF5833.
   
+![A2ARLUF5833](https://github.com/Kitaolab/PaCS-MD-example/assets/6975132/d8b24450-eca6-4496-aedb-bba13a12944f)
