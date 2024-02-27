@@ -21,7 +21,7 @@ cmd_serial = "gmx_mpi mdrun -ntomp 8"               # Commands to run the softwa
 cmd_parallel = "gmx_mpi mdrun -ntomp 8 "             # Commands to run the software parallelly
 structure = "input.gro"                    # Structural file such as gro, pdb, rst7, etc.
 topology = "topol.top"                     # Topology file such as top, parm7, psf, etc.
-parameter = "mdout.mdp"                # Parameter file such as mdp, mdin, namd, etc.
+parameter = "mdpacs.mdp"                # Parameter file such as mdp, mdin, namd, etc.
 index_file = "index.ndx"                   # Gromacs index file
 trajectory_extension = ".xtc"                       # Trajectory file extension. ("." is necessary)
 
