@@ -7,7 +7,7 @@
 ### For jobscript, please refer to the jobscript folder in the Toolkit
 
 ## basic
-max_cycle = 30                                     # Maximum number of cycles to run. (ex. 1, ..., 123, ..., 999)
+max_cycle = 30                                      # Maximum number of cycles to run. (ex. 1, ..., 123, ..., 999)
 n_replica = 50                                      # Number of replica. (ex. 1, ..., 123, ..., 999)
 n_parallel = 10                                     # Number of replica which are calculated at a time
 centering = true                                    # Whether to move the molecule to the center
@@ -15,29 +15,28 @@ centering_selection = "protein"                     # Name of molecule to move i
 working_dir = "./."                                 # Directory where pacsmd will run
 
 ## simulator
-software = "gromacs"                                # Software used inside PaCS-MD
-cmd_mpi = "mpirun -np 80 -mca coll_hcoll_enable 0" # Commands for MPI such as mpirun, blank is OK
+simulator = "gromacs"                               # Software used inside PaCS-MD
+cmd_mpi = "mpirun -np 80 -mca coll_hcoll_enable 0"  # Commands for MPI such as mpirun, blank is OK
 cmd_serial = "gmx_mpi mdrun -ntomp 8"               # Commands to run the software serially
-cmd_parallel = "gmx_mpi mdrun -ntomp 8 "             # Commands to run the software parallelly
-structure = "input.gro"                    # Structural file such as gro, pdb, rst7, etc.
-topology = "topol.top"                     # Topology file such as top, parm7, psf, etc.
-parameter = "mdpacs.mdp"                # Parameter file such as mdp, mdin, namd, etc.
-index_file = "index.ndx"                   # Gromacs index file
+cmd_parallel = "gmx_mpi mdrun -ntomp 8 "            # Commands to run the software parallelly
+structure = "input.gro"                             # Structural file such as gro, pdb, rst7, etc.
+topology = "topol.top"                              # Topology file such as top, parm7, psf, etc.
+mdconf = "mdpacs.mdp"                               # Parameter file such as mdp, mdin, namd, etc.
+index_file = "index.ndx"                            # Gromacs index file
 trajectory_extension = ".xtc"                       # Trajectory file extension. ("." is necessary)
 
 ## analyzer
-function = "target"                                 # Evaluation function
+type = "target"                                     # Evaluation function
 threshold = 0.05                                    # CV threshold used to decide whether to terminate the calculation (in units of nm)
 skip_frame = 1                                      # How many frames to skip when ranking CVs
-analyze_tool = "gromacs"                             # Trajectory tool used to calculate the evaluation function
-reference = "ref.pdb"                      # Structure for comparison
+analyzer = "gromacs"                                # Trajectory tool used to calculate the evaluation function
+reference = "ref.pdb"                               # Structure for comparison
 selection1 = "backbone"                             # Selection string for specified group in trajectroies (least squares fit)
 selection2 = "backbone"                             # Selection string for specified group in trajectories (RMSD calculation)
 selection3 = "backbone"                             # Selection string for specified group in reference (least squares fit)
 selection4 = "backbone"                             # Selection string for specified group in reference (RMSD calculation)
 
 ## postprocess
-bestframe = true                                    # Whether bestframe is executed after trial
 rmmol = true                                        # Whether rmmol is executed after each cycle
-keep_selection = "Protein"                  # Molecular name or index group to be left in the trajectory when rmmol
+keep_selection = "Protein"                          # Molecular name or index group to be left in the trajectory when rmmol
 rmfile = true                                       # Whether rmfile is executed after trial
