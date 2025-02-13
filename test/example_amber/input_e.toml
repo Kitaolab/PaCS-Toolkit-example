@@ -12,9 +12,9 @@ simulator = "amber"
 cmd_mpi = ""
 cmd_serial = "sander"
 cmd_parallel = "sander"
-structure = "./inputs/example_amber/structure.rst7"
-topology = "./inputs/example_amber/topology.parm7"
-mdconf = "./inputs/example_amber/parameter.mdin"
+structure = "./example_amber/structure.rst7"
+topology = "./example_amber/topology.parm7"
+mdconf = "./example_amber/parameter.mdin"
 trajectory_extension = ".nc"
 
 ## analyzer

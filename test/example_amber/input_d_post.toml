@@ -12,9 +12,9 @@ simulator = "amber"
 cmd_mpi = "mpirun -np 6"
 # cmd_serial = "pmemd.cuda"
 cmd_serial = "sander.MPI"
-structure = "./inputs/example_amber/structure.rst7"
-topology = "./inputs/example_amber/topology.parm7"
-mdconf = "./inputs/example_amber/parameter.mdin"
+structure = "./example_amber/structure.rst7"
+topology = "./example_amber/topology.parm7"
+mdconf = "./example_amber/parameter.mdin"
 trajectory_extension = ".nc"
 
 
